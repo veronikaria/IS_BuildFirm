@@ -1,0 +1,30 @@
+﻿@model IEnumerable<IS_BuildFirm.Models.Brigade>
+@{
+    ViewData["Title"] = "Список бригад";
+}
+
+<h2 style="text-align:center;">Список бригад</h2>
+<div class="container">
+    <ul>
+        @foreach (var brigade in Model)
+        {
+        <li class="list-group-item">
+            <div>
+                Номер бригади: @brigade.Id
+            </div>
+            <div>
+                Назва бригади: @brigade.Name
+            </div>
+            <div class="buttons">
+                <a asp-controller="Brigade" asp-action="Edit" asp-route-id="@brigade.Id">Редагувати</a>
+                <a asp-controller="Brigade" asp-action="Delete" asp-route-id="@brigade.Id">Видалити</a>
+            </div>
+        </li>
+        }
+    </ul>
+</div>
+
+<br>
+<div>
+    <a class="btn btn-light" asp-controller="Brigade" asp-action="Create">Додати бригаду</a>
+</div>

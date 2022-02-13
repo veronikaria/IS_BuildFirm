@@ -1,0 +1,13 @@
+﻿@model IS_BuildFirm.Models.Speciality
+@{
+    ViewBag.Title = "Деталі спеціальності";
+}
+<h2 style="text-align:center">Деталі спеціальності @Model.Name</h2>
+<div class="details">
+    <h5>Номер спеціальності: @Model.Id</h5>
+    <p>Назва: @Model.Name</p>
+    <p>Опис: @Model.Description</p>
+</div>
+<div class="form-group">
+    <a asp-controller="Speciality" asp-action="Back" class="btn btn-primary">Назад</a>
+</div>

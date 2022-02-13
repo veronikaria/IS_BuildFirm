@@ -1,0 +1,40 @@
+﻿@model IS_BuildFirm.Models.Schedule
+@{
+    ViewData["Title"] = "Змінити дані про графік";
+}
+
+<h2 style="text-align:center">Змінити дані про графік <span>@Model.Id</span></h2>
+
+<form method="post" asp-action="Edit" asp-controller="Schedule" asp-route-id="@Model.Id">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Address"></label><br />
+        <input asp-for="Address" class="form-control" placeholder="Адреса..." />
+        <span asp-validation-for="Address"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Brigade"></label><br />
+        <input readonly asp-for="Brigade" class="form-control" placeholder="Бригада..." value="@Model.Brigade.Id"/>
+        <span asp-validation-for="Brigade"></span>
+    </div>
+
+    <div class="form-group">
+        Виберіть початкову дату: <input type="date" asp-for="StartDate" class="form-control">
+    </div>
+    <div class="form-group">
+        Виберіть кінцеву дату: <input type="date" asp-for="EndDate" class="form-control">
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label><br />
+        <input asp-for="Description" class="form-control" placeholder="Опис графіка..." />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Зберегти" class="btn btn-primary">
+        <a asp-controller="Schedule" asp-action="Back" class="btn btn-primary">Відхилити</a>
+    </div>
+
+</form>
+

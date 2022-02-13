@@ -1,0 +1,41 @@
+﻿@model IEnumerable<IS_BuildFirm.Models.Builder>
+@{
+    ViewData["Title"] = "Список робітників";
+}
+
+<h2 style="text-align:center;">Список робітників</h2>
+<div class="container">
+    <ul>
+        @foreach (var builder in Model)
+        {
+            <li class="list-group-item">
+                <div>
+                    <table class="table table-dark">
+                        <tr>
+                            <th scope="col">ФІО</th>
+                            <th scope="col">Телефон</th>
+                            <th scope="col">Спеціальність</th>
+                            <th scope="col">Бригада</th>
+                        </tr>
+                        <tr>
+                            <td>@builder.Lastname @builder.Firstname @builder.Middlename</td>
+                            <td>@builder.Phone</td>
+                            <td>@builder?.Speciality?.Name</td>
+                            <td>@builder?.Brigade?.Name</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <a asp-controller="Builder" asp-action="Details" asp-route-id="@builder.Id">Деталі</a>
+                    <a asp-controller="Builder" asp-action="Edit" asp-route-id="@builder.Id">Редагувати</a>
+                    <a asp-controller="Builder" asp-action="Delete" asp-route-id="@builder.Id">Видалити</a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<br>
+<div>
+    <a class="btn btn-light" asp-controller="Builder" asp-action="Create">Додати робітника</a>
+</div>

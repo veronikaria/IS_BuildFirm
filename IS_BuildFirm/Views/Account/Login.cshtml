@@ -1,0 +1,27 @@
+﻿@model IS_BuildFirm.ViewModels.LoginViewModel
+
+<h2>Вхід в Інформаційну Систему</h2>
+<br>
+
+<div class="form-group">
+    <h6>У Вас немає аккаунту? <a asp-controller="Account" asp-action="Register" class="btn btn-secondary">Реєстрація</a></h6>
+    
+</div>
+<br>
+<form method="post" asp-controller="Account" asp-action="Login"
+      asp-route-returnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Увійти" class="btn btn-success" />
+    </div>
+</form>

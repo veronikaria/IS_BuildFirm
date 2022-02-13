@@ -1,0 +1,28 @@
+﻿@model IEnumerable<IS_BuildFirm.Models.Speciality>
+@{
+    ViewData["Title"] = "Список спеціальностей";
+}
+
+<h2 style="text-align:center;">Список спеціальностей</h2>
+<div class="container">
+    <ul>
+        @foreach (var speciality in Model)
+        {
+            <li class="list-group-item">
+                <div>
+                    Назва: @speciality.Name
+                </div>
+                <div class="buttons">
+                    <a asp-controller="Speciality" asp-action="Details" asp-route-id="@speciality.Id">Деталі</a>
+                    <a asp-controller="Speciality" asp-action="Edit" asp-route-id="@speciality.Id">Редагувати</a>
+                    <a asp-controller="Speciality" asp-action="Delete" asp-route-id="@speciality.Id">Видалити</a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<br>
+<div>
+    <a class="btn btn-light" asp-controller="Speciality" asp-action="Create">Додати спеціальність</a>
+</div>

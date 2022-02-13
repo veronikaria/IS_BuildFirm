@@ -1,0 +1,36 @@
+﻿@model IS_BuildFirm.ViewModels.RegisterViewModel
+    <h2>Реєстрація у Інформаційній Системі</h2>
+    <br>
+
+    <div class="form-group">
+        <h6>У Вас є аккаунт? <a asp-controller="Account" asp-action="Login" class="btn btn-secondary">Вхід</a></h6>
+
+    </div>
+    <br>
+
+    <form method="post" asp-controller="Account" asp-action="Register">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label asp-for="Email"></label><br />
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Age"></label><br />
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label><br />
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PasswordConfirm"></label><br />
+            <input asp-for="PasswordConfirm" class="form-control" />
+            <span asp-validation-for="PasswordConfirm"></span>
+        </div>
+        <div>
+            <input type="submit" value="Реєстрація" class="btn btn-success" />
+        </div>
+    </form>

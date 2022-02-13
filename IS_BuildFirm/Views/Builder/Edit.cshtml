@@ -1,0 +1,46 @@
+﻿@model IS_BuildFirm.Models.Builder
+@{
+    ViewData["Title"] = "Змінити дані про робітника";
+}
+
+<h2 style="text-align:center">Змінити дані про робітника <span>@Model.Id</span></h2>
+
+<form method="post" asp-action="Edit" asp-controller="Builder" asp-route-id="@Model.Id">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Lastname"></label><br />
+        <input asp-for="Lastname" class="form-control" placeholder="Прізвище робітника..." />
+        <span asp-validation-for="Lastname"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Firstname"></label><br />
+        <input asp-for="Firstname" class="form-control" placeholder="Ім'я робітника..." />
+        <span asp-validation-for="Firstname"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Middlename"></label><br />
+        <input asp-for="Middlename" class="form-control" placeholder="По-батькові робітника..." />
+        <span asp-validation-for="Middlename"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone"></label><br />
+        <input asp-for="Phone" class="form-control" placeholder="Номер робітника..." />
+        <span asp-validation-for="Phone"></span>
+    </div>
+    <div class="form-group">
+        <label>Номер спеціальності</label><br />
+        <input readonly asp-for="Speciality.Id" class="form-control"/>
+        <span asp-validation-for="Speciality.Id"></span>
+    </div>
+    <div class="form-group">
+        <label>Номер бригади</label><br />
+        <input readonly asp-for="Brigade.Id" class="form-control"/>
+        <span asp-validation-for="Brigade.Id"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Зберегти" class="btn btn-primary">
+        <a asp-controller="Builder" asp-action="Back" class="btn btn-primary">Відхилити</a>
+    </div>
+
+</form>
+

@@ -1,0 +1,52 @@
+﻿@model IS_BuildFirm.ViewModels.ScheduleViewModule
+@{
+    ViewData["Title"] = "Додати графік";
+}
+
+<h2 style="text-align:center">Додати графік</h2>
+<h3>Ввід даних для графіка</h3>
+<form asp-action="Create" asp-controller="Schedule" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="Schedule.Address"></label><br />
+        <div class="col-sm-10">
+            <input asp-for="Schedule.Address" placeholder="Адреса..." class="form-control" />
+        </div>
+        <span asp-validation-for="Schedule.Address"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="BrigadeId"></label><br />
+        <div class="col-sm-10">
+            <input asp-for="BrigadeId" placeholder="Бригада..." class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-10">
+            Виберіть початкову дату: <input type="date" asp-for="Schedule.StartDate" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-10">
+            Виберіть кінцеву дату: <input type="date" asp-for="Schedule.EndDate" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="Schedule.Description"></label><br />
+        <div class="col-sm-10">
+            <textarea asp-for="Schedule.Description" placeholder="Опис графіка..." class="form-control" rows="3"></textarea>
+        </div>
+        <span asp-validation-for="Schedule.Description"></span>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value="Зберегти графік" class="btn btn-primary">
+            <a asp-controller="Schedule" asp-action="Back" class="btn btn-primary">Назад</a>
+        </div>
+    </div>
+
+</form>
+

@@ -1,0 +1,26 @@
+﻿@model IS_BuildFirm.Models.Speciality
+@{
+    ViewData["Title"] = "Змінити дані про спеціальність";
+}
+
+<h2 style="text-align:center">Змінити дані про спеціальність <span>@Model.Id</span></h2>
+
+<form method="post" asp-action="Edit" asp-controller="Speciality" asp-route-id="@Model.Id">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Name"></label><br />
+        <input asp-for="Name" class="form-control" placeholder="Назва спеціальності..."  />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label><br />
+        <input asp-for="Description" class="form-control" placeholder="Опис спеціальності..."  />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Зберегти" class="btn btn-primary">
+        <a asp-controller="Speciality" asp-action="Back" class="btn btn-primary">Відхилити</a>
+    </div>
+
+</form>
+

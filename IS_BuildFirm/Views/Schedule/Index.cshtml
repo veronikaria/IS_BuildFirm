@@ -1,0 +1,37 @@
+﻿@model IEnumerable<IS_BuildFirm.Models.Schedule>
+@{
+    ViewData["Title"] = "Список графіків";
+}
+
+<h2 style="text-align:center;">Список графіків</h2>
+<div class="container">
+    <table class="table table-light">
+        <tr>
+            <th scope="col"><a asp-action="Index" asp-route-status="@ViewBag.AddressSort">Адреса</a></th>
+            <th scope="col"><a asp-action="Index" asp-route-status="@ViewBag.BrigadeSort">Бригада</a></th>
+            <th scope="col"><a asp-action="Index" asp-route-status="@ViewBag.DateStartSort">Початок</a></th>
+            <th scope="col"><a asp-action="Index" asp-route-status="@ViewBag.DateEndSort">Кінець</a></th>
+            <th></th>
+        </tr>
+        @foreach (var schedule in Model)
+        {
+
+            <tr>
+                <td>@schedule.Address</td>
+                <td>@schedule?.Brigade?.Name</td>
+                <td>@schedule.StartDate</td>
+                <td>@schedule.EndDate</td>
+                <td>
+                    <a asp-controller="Schedule" asp-action="Details" asp-route-id="@schedule.Id">Деталі</a>
+                    <a asp-controller="Schedule" asp-action="Edit" asp-route-id="@schedule.Id">Редагувати</a>
+                    <a asp-controller="Schedule" asp-action="Delete" asp-route-id="@schedule.Id">Видалити</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br>
+<div>
+    <a class="btn btn-light" asp-controller="Schedule" asp-action="Create">Додати графік</a>
+</div>

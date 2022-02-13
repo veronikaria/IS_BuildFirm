@@ -1,0 +1,32 @@
+﻿@model IS_BuildFirm.Models.Speciality
+@{
+    ViewData["Title"] = "Додати спеціальність";
+}
+
+<h2 style="text-align:center">Додати спеціальність</h2>
+<h3>Ввід даних для спеціальності</h3>
+<form asp-action="Create" asp-controller="Speciality" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="Name"></label><br />
+        <div class="col-sm-10">
+            <input asp-for="Name" placeholder="Назва спеціальності..." class="form-control" />
+        </div>
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="Description"></label><br />
+        <div class="col-sm-10">
+            <textarea asp-for="Description" placeholder="Опис спеціальності..." class="form-control" rows="3"></textarea>
+        </div>
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value="Зберегти спеціальність" class="btn btn-primary">
+            <a asp-controller="Speciality" asp-action="Back" class="btn btn-primary">Назад</a>
+        </div>
+    </div>
+
+</form>
+
